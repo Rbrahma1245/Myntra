@@ -36,7 +36,7 @@ function Product() {
                     let { id, title, price, image, description } = elem
                     return (
                        
-                            <div className="col-sm-4 " >
+                            <div className="col-sm-4 " key={i} >
                                 <div className="card">
                                     <img src={image} width={200} height={200}/>
                                     <div className="card-body">
@@ -47,8 +47,6 @@ function Product() {
                                 </div>
                             </div>
                           
-                       
-
 
                     )
                 })
