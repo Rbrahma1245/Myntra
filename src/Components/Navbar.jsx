@@ -1,6 +1,22 @@
 import React from 'react'
 
 function Navbar() {
+
+    function searchHandler(e) {
+        let serchText = e.target.value
+        console.log(serchText)
+
+        
+        // let curData = arr.filter((data) => {
+        //     return data.text.includes(serchText)
+        // })
+
+        // setFilterData(curData)
+
+    }
+
+
+
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -24,10 +40,10 @@ function Navbar() {
                         </ul>
 
                         <form >
-                            <input className="form-control me-2" style={{ width: 400 }} type="search" placeholder="Search" aria-label="Search" />
+                            <input className="form-control me-2" style={{ width: 400 }} type="search" placeholder="Search" aria-label="Search" onChange={searchHandler} />
                         </form>
 
-                        <div   style={{ display: 'flex', justifyContent: 'end', width: '50%' }}>
+                        <div style={{ display: 'flex', justifyContent: 'end', width: '50%' }}>
                             <div >
                                 LOGIN
                             </div>

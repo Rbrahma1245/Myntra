@@ -15,16 +15,15 @@ function Banner() {
 
     return (
         <>
-
             <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel" style={{ marginTop: 50 }}>
                 <div className="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
                     {
                         images.map((e, i) => {
                             return (
-                                <>
+                                <div key={i}>
                                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to={i + 1} aria-label="Slide 2"></button>
-                                </>
+                                </div>
                             )
                         })
                     }
@@ -36,11 +35,9 @@ function Banner() {
                     {
                         images.map((images, i) => {
                             return (
-                                <>
-                                    <div className="carousel-item" key={i}>
-                                        <img src={images} className="d-block w-100" alt="..." />
-                                    </div>
-                                </>
+                                <div className="carousel-item" key={i}>
+                                    <img src={images} className="d-block w-100" alt="..." />
+                                </div>
                             )
                         })
                     }
