@@ -37,8 +37,7 @@ function Product() {
     function getFirstItemFromEachCategory(array) {
         const firstItems = {};
       
-        return array.reduce((accumulator, item) => {
-        
+        return array.reduce((accumulator, item) => {    
           const category = item.category;
       
           if (!firstItems[category]) {
