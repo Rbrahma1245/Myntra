@@ -1,12 +1,66 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import Loader from './Loader';
 
-function FeatureProduct({ productList }) {
+function FeatureProduct() {
+
+
+    let [products, setProducts] = useState([])
+    let [isloading, setIsLoading] = useState(false);
+
+    const fetchProduct = async () => {
+        setIsLoading(true);
+        try {
+            const { data } = await axios.get('https://fakestoreapi.com/products');
+            setProducts(data)
+            console.log(data)
+
+        }
+        catch (error) {
+            console.log(error)
+        }
+        setIsLoading(false);
+
+    }
+
+
+    useEffect(() => {
+        fetchProduct()
+    }, [])
+
+    if (isloading) return <Loader />
+
+
+
+    function getFirstItemFromEachCategory(array) {
+        const firstItems = {};
+      
+        return array.reduce((accumulator, item) => {    
+          const category = item.category;
+      
+          if (!firstItems[category]) {
+            firstItems[category] = true;
+            accumulator.push(item);
+          }
+      
+          return accumulator;
+        }, []);
+      }
+      
+      
+      const firstItemsFromEachCategory = getFirstItemFromEachCategory(products);
+      console.log(firstItemsFromEachCategory);
+      
+
+
+
+
     return (
         <div className='row' style={{ marginTop: 50, justifyContent: 'center' }}>
             <h5>SHOP BY CATEGORY</h5>
 
             {
-                productList?.map((elem, i) => {
+                firstItemsFromEachCategory.map((elem, i) => {
                     let { id, title, price, image , category} = elem
 
                     return (
@@ -22,14 +76,9 @@ function FeatureProduct({ productList }) {
                                 </div>
                             </div>
                         </div>
-
                     )
-
                 })
             }
-
-
-
         </div>
     )
 }

@@ -1,12 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { NavLink, useLocation } from 'react-router-dom'
+import { PiShoppingCartLight } from 'react-icons/pi';
+import { CgProfile } from 'react-icons/cg';
+
+
 
 function Navbar() {
+
+    let location = useLocation()
+    let showSearchBar = location.pathname !== '/'
+
+
+
 
     function searchHandler(e) {
         let serchText = e.target.value
         console.log(serchText)
 
-        
+
         // let curData = arr.filter((data) => {
         //     return data.text.includes(serchText)
         // })
@@ -15,7 +26,7 @@ function Navbar() {
 
     }
 
-
+    let [search, setSearch] = useState(true)
 
     return (
         <>
@@ -27,28 +38,34 @@ function Navbar() {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
-                            <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="#">HOME</a>
+                            <li className="nav-item" >
+                                <NavLink className="nav-link active" aria-current="page" to="/">HOME</NavLink>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">PRODUCTS</a>
+                                <NavLink className="nav-link" to="/product" style={{ marginLeft: 10 }}>PRODUCTS</NavLink>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">ABOUT</a>
+                                <NavLink className="nav-link" to="/about" style={{ marginLeft: 10 }}>ABOUT</NavLink>
                             </li>
-
                         </ul>
 
-                        <form >
-                            <input className="form-control me-2" style={{ width: 400 }} type="search" placeholder="Search" aria-label="Search" onChange={searchHandler} />
-                        </form>
+                        {
+                            showSearchBar &&
+                            <form style={{ marginLeft: "2rem" }}>
+                                <input className="form-control me-2" style={{ width: 400 }} type="search" placeholder="Search" aria-label="Search" onChange={searchHandler} />
+                            </form>
+                        }
 
-                        <div style={{ display: 'flex', justifyContent: 'end', width: '50%' }}>
-                            <div >
-                                LOGIN
+
+                        <div style={{ display: 'flex', justifyContent: 'end', width: '100%' , marginRight:50}}>
+                            <div className="d-flex flex-column align-items-center"  >
+                                <CgProfile size={20} />
+                                <p style={{ fontSize: 12 }}>LOGIN</p>
+
                             </div>
-                            <div style={{ marginLeft: 30 }}>
-                                CART
+                            <div className="d-flex flex-column align-items-center" style={{ marginLeft: 30 }}>
+                                <PiShoppingCartLight size={22} />
+                                <p style={{ fontSize: 12 }}>CART</p>
                             </div>
                         </div>
                     </div>
