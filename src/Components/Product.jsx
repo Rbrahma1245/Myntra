@@ -56,7 +56,6 @@ function Product() {
 
 
 
-
     return (
         <div >
             <FeatureProduct productList={firstItemsFromEachCategory}/>

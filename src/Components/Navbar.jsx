@@ -1,5 +1,9 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { PiShoppingCartLight } from 'react-icons/pi';
+import { CgProfile } from 'react-icons/cg';
+
+
 
 function Navbar() {
 
@@ -7,7 +11,7 @@ function Navbar() {
         let serchText = e.target.value
         console.log(serchText)
 
-        
+
         // let curData = arr.filter((data) => {
         //     return data.text.includes(serchText)
         // })
@@ -28,28 +32,32 @@ function Navbar() {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
-                            <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="#">HOME</a>
+                            <li className="nav-item" >
+                                <NavLink className="nav-link active" aria-current="page" href="/">HOME</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" href="/product">PRODUCTS</NavLink>
+                                <NavLink className="nav-link" href="/product" style={{marginLeft:10}}>PRODUCTS</NavLink>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="/about">ABOUT</a>
+                                <a className="nav-link" href="/about" style={{marginLeft:10}}>ABOUT</a>
                             </li>
 
                         </ul>
 
-                        <form >
+                        <form style={{marginLeft:"2rem"}}>
                             <input className="form-control me-2" style={{ width: 400 }} type="search" placeholder="Search" aria-label="Search" onChange={searchHandler} />
                         </form>
 
                         <div style={{ display: 'flex', justifyContent: 'end', width: '50%' }}>
-                            <div >
-                                LOGIN
+                            <div className="d-flex flex-column align-items-center"  >
+                                <CgProfile size={20} />
+                               
+                                <p style={{ fontSize: 12 }}>LOGIN</p>
+
                             </div>
-                            <div style={{ marginLeft: 30 }}>
-                                CART
+                            <div className="d-flex flex-column align-items-center"  style={{ marginLeft: 30 }}>
+                                <PiShoppingCartLight size={22} />
+                                <p style={{ fontSize: 12 }}>CART</p>
                             </div>
                         </div>
                     </div>
