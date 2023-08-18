@@ -1,20 +1,27 @@
-import { useState } from 'react'
+import { BrowserRouter, Route, RouterProvider, Routes } from "react-router-dom";
 
-// import Home from './Components/Home'
-
-import { RouterProvider } from "react-router-dom";
-
-import router from './RouteConstants'
+import Navbar from "./Components/Navbar";
+import Home from "./Components/Home";
+import About from "./Components/About";
+import Product from "./Components/Product";
 
 
 function App() {
 
-
-
-
   return (
     <>
-      <RouterProvider router={router} />
+      <BrowserRouter >
+        <Navbar />
+
+        <Routes>
+          <Route path='/' element={< Home />} />
+          <Route path='/about' element={< About />} />
+          <Route path='/product' element={< Product />} />
+        </Routes>
+
+
+      </BrowserRouter>
+
     </>
   )
 }

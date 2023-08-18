@@ -1,14 +1,12 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import Loader from './Loader';
-import FeatureProduct from './FeatureProduct';
-// import FeatureProduct from './FeatureProduct';
+import Navbar from './Navbar';
 
 function Product() {
 
     let [products, setProducts] = useState([])
     let [isloading, setIsLoading] = useState(false);
-    let [featureProductList, setFeatureProductList]= useState([])
 
     const fetchProduct = async () => {
         setIsLoading(true);
@@ -34,54 +32,34 @@ function Product() {
 
 
 
-    function getFirstItemFromEachCategory(array) {
-        const firstItems = {};
-      
-        return array.reduce((accumulator, item) => {    
-          const category = item.category;
-      
-          if (!firstItems[category]) {
-            firstItems[category] = true;
-            accumulator.push(item);
-          }
-      
-          return accumulator;
-        }, []);
-      }
-      
-      
-      const firstItemsFromEachCategory = getFirstItemFromEachCategory(products);
-      console.log(firstItemsFromEachCategory);
-      
-
-
 
     return (
-        <div >
-            <FeatureProduct productList={firstItemsFromEachCategory}/>
-  
-            {/* {
-                products.map((elem, i) => {
-                    let { id, title, price, image } = elem
+        <div style={{marginTop:30}} >
+            <h6>ALL PRODUCT LIST</h6>
 
-                    return (
+            <div className='row ' style={{ marginTop: 10, justifyContent: 'center' }}>
+                {
+                    products.map((elem, i) => {
+                        let { id, title, price, image } = elem
 
-                        <div style={{ width: 400, marginBottom: 50 }} key={i} >
-                            <div className="card" style={{ height: 400, alignItems: 'center' }}>
-                                <img src={image} width={200} height={200} />
-                                <div className="card-body">
-                                    <h6 className="card-title">{title}</h6>
-                                    <h6 className="card-subtitle mb-2 text-muted">$ {price}</h6>
-                                    <br />
-                                    <a href="#" className="btn btn-primary">Add to card</a>
+                        return (
+
+                            <div style={{ width: 400, marginBottom: 50 }} key={i} >
+                                <div className="card" style={{ height: 400, alignItems: 'center' }}>
+                                    <img src={image} width={200} height={200} />
+                                    <div className="card-body">
+                                        <h6 className="card-title">{title}</h6>
+                                        <h6 className="card-subtitle mb-2 text-muted">$ {price}</h6>
+                                        <br />
+                                        <a href="#" className="btn btn-primary">Add to card</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        )
+                    })
+                }
 
-                    )
-
-                })
-            } */}
+            </div>
         </div>
     )
 }
