@@ -60,7 +60,7 @@ function Navbar() {
                         <div style={{ display: 'flex', justifyContent: 'end', width: '100%' , marginRight:50}}>
                             <div className="d-flex flex-column align-items-center"  >
                                 <CgProfile size={20} />
-                                <p style={{ fontSize: 12 }}>LOGIN</p>
+                                <p style={{ fontSize: 13 }}>PROFILE</p>
 
                             </div>
                             <div className="d-flex flex-column align-items-center" style={{ marginLeft: 30 }}>

@@ -1,57 +1,32 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import Loader from './Loader';
+import { useContext } from 'react';
+import { APIData } from './UseContext/APIContext';
 
 function FeatureProduct() {
 
-
-    let [products, setProducts] = useState([])
-    let [isloading, setIsLoading] = useState(false);
-
-    const fetchProduct = async () => {
-        setIsLoading(true);
-        try {
-            const { data } = await axios.get('https://fakestoreapi.com/products');
-            setProducts(data)
-            console.log(data)
-
-        }
-        catch (error) {
-            console.log(error)
-        }
-        setIsLoading(false);
-
-    }
-
-
-    useEffect(() => {
-        fetchProduct()
-    }, [])
-
-    if (isloading) return <Loader />
-
+    let { products, isLoading } = useContext(APIData)
+    if (isLoading) return <Loader />
 
 
     function getFirstItemFromEachCategory(array) {
         const firstItems = {};
-      
-        return array.reduce((accumulator, item) => {    
-          const category = item.category;
-      
-          if (!firstItems[category]) {
-            firstItems[category] = true;
-            accumulator.push(item);
-          }
-      
-          return accumulator;
-        }, []);
-      }
-      
-      
-      const firstItemsFromEachCategory = getFirstItemFromEachCategory(products);
-      console.log(firstItemsFromEachCategory);
-      
 
+        return array.reduce((accumulator, item) => {
+            const category = item.category;
+
+            if (!firstItems[category]) {
+                firstItems[category] = true;
+                accumulator.push(item);
+            }
+
+            return accumulator;
+        }, []);
+    }
+
+    const firstItemsFromEachCategory = getFirstItemFromEachCategory(products);
+    console.log(firstItemsFromEachCategory);
 
 
 
@@ -61,11 +36,11 @@ function FeatureProduct() {
 
             {
                 firstItemsFromEachCategory.map((elem, i) => {
-                    let { id, title, price, image , category} = elem
+                    let { id, price, image, category } = elem
 
                     return (
 
-                        <div style={{ width: 300, marginBottom: 50, marginTop:20 }} key={i} >
+                        <div style={{ width: 300, marginBottom: 50, marginTop: 20 }} key={id} >
                             <div className="card" style={{ height: 400, alignItems: 'center' }}>
                                 <img src={image} width={200} height={200} style={{ marginTop: 10 }} />
                                 <div className="card-body">

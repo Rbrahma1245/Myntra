@@ -1,40 +1,17 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useContext } from 'react'
+import { APIData } from './UseContext/APIContext';
 import Loader from './Loader';
-import Navbar from './Navbar';
+
 
 function Product() {
 
-    let [products, setProducts] = useState([])
-    let [isloading, setIsLoading] = useState(false);
+    let { products, isLoading } = useContext(APIData)
 
-    const fetchProduct = async () => {
-        setIsLoading(true);
-        try {
-            const { data } = await axios.get('https://fakestoreapi.com/products');
-            setProducts(data)
-            console.log(data)
-
-        }
-        catch (error) {
-            console.log(error)
-        }
-        setIsLoading(false);
-
-    }
-
-
-    useEffect(() => {
-        fetchProduct()
-    }, [])
-
-    if (isloading) return <Loader />
-
-
+    if (isLoading) return <Loader />
 
 
     return (
-        <div style={{marginTop:30}} >
+        <div style={{ marginTop: 30 }} >
             <h6>ALL PRODUCT LIST</h6>
 
             <div className='row ' style={{ marginTop: 10, justifyContent: 'center' }}>
