@@ -7,16 +7,11 @@ import Loader from './Loader';
 function SingleProduct() {
 
     const { productId } = useParams();
-
     let { products, isLoading } = useContext(APIData)
-
 
     let singleProduct = products.find((e) => e.id == productId)
 
-
     if (isLoading) return <Loader />
-
-
 
     return (
         <div  >

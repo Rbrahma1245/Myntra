@@ -3,29 +3,19 @@ import { APIData } from './UseContext/APIContext';
 import Loader from './Loader';
 import FilterSection from './FilterSection';
 
-import { NavLink, useLocation, useParams } from 'react-router-dom'
+import { NavLink} from 'react-router-dom'
 
 
 function Product() {
 
-    
-
-
     let { products, isLoading } = useContext(APIData)
-
-  
-
     if (isLoading) return <Loader />
 
 
     return (
         <div style={{ marginTop: 30 }} >
-
-
             <div className='d-flex '>
-                <FilterSection />
-
-                
+                <FilterSection />           
 
                 <div className='row ' style={{ marginTop: 10, justifyContent: 'center' }}>
                     {
