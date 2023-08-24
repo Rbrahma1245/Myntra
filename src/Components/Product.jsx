@@ -3,10 +3,17 @@ import { APIData } from './UseContext/APIContext';
 import Loader from './Loader';
 import FilterSection from './FilterSection';
 
+import { NavLink, useLocation, useParams } from 'react-router-dom'
+
 
 function Product() {
 
+    
+
+
     let { products, isLoading } = useContext(APIData)
+
+  
 
     if (isLoading) return <Loader />
 
@@ -34,7 +41,7 @@ function Product() {
                                             <h6 className="card-title">{title}</h6>
                                             <h6 className="card-subtitle mb-2 text-muted">$ {price}</h6>
                                             <br />
-                                            <a href="#" className="btn btn-primary">Add to card</a>
+                                            <NavLink to={`/product/${id}`} className="btn btn-primary">Add to card</NavLink>
                                         </div>
                                     </div>
                                 </div>
