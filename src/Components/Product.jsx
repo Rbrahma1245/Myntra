@@ -5,7 +5,7 @@ import FilterSection from './FilterSection';
 import Card from './Card';
 
 
-function Product() {
+function Product({search}) {
 
     let { products, isLoading } = useContext(APIData)
 
@@ -14,11 +14,13 @@ function Product() {
     })
 
 
-    if (isLoading) return <Loader />
-
     if (form.price == 'Low to High') products.sort((a, b) => a.price - b.price);
     if (form.price == 'High to Low') products.sort((a, b) => b.price - a.price);
 
+
+    let filterProducts = products.filter((elem)=> elem.title.toLowerCase().includes(search))
+
+    if (isLoading) return <Loader />
 
     return (
         <div style={{ marginTop: 30 }} >
@@ -28,7 +30,7 @@ function Product() {
                 <div className='row ' style={{ marginTop: 10, justifyContent: 'center' }}>
 
                     {
-                        products.map((elem, i) => <Card elem={elem} key={elem.id} />)
+                        filterProducts.map((elem, i) => <Card elem={elem} key={elem.id} />)
                     }
 
                 </div>

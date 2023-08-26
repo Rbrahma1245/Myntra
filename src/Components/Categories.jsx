@@ -23,7 +23,6 @@ function Categories() {
     if (isLoading) return <Loader />
 
 
-
     return (
         <div style={{ marginTop: 30 }} >
             <NavLink style={{ marginLeft: 50 }} to="/" > Back</NavLink>

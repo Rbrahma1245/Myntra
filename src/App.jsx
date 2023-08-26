@@ -7,20 +7,23 @@ import Product from "./Components/Product";
 import APIContext from "./Components/UseContext/APIContext";
 import SingleProduct from "./Components/SingleProduct";
 import Categories from "./Components/Categories";
+import { useState } from "react";
 
 
 function App() {
+
+  let [search, setSearch]= useState('')
 
   return (
     <>
       <APIContext>
         <BrowserRouter >
-          <Navbar />
+          <Navbar setSearch={setSearch}/>
 
           <Routes>
             <Route path='/' element={< Home />} />
             <Route path='/about' element={< About />} />
-            <Route path='/product' element={< Product />} />
+            <Route path='/product' element={< Product search={search}/>} />
             <Route path="/product/:productId" element={<SingleProduct />} />
             <Route path="/:category" element={<Categories />} />
           </Routes>

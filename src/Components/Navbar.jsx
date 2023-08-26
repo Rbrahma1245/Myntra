@@ -5,28 +5,18 @@ import { CgProfile } from 'react-icons/cg';
 
 
 
-function Navbar() {
+function Navbar({setSearch}) {
 
     let location = useLocation()
     let showSearchBar = location.pathname == '/product'
 
 
-
-
     function searchHandler(e) {
-        let serchText = e.target.value
-        console.log(serchText)
-
-
-        // let curData = arr.filter((data) => {
-        //     return data.text.includes(serchText)
-        // })
-
-        // setFilterData(curData)
+        let searchText = e.target.value
+        setSearch(searchText)
 
     }
 
-    let [search, setSearch] = useState(true)
 
     return (
         <>
