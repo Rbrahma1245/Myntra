@@ -1,14 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function FilterSection() {
+   
+
+
+
+    let [form, setForm] = useState({
+        price: '',
+    })
+
+
+    function commonHandler(e) {
+        let { name, value } = e.target
+        setForm((prev) => {
+            return { ...prev, [name]: value }
+        })
+    }
+
+    console.log(form, 'from');
     return (
         <div className='w-25 ' style={{ padding: "20px 0px 5px 20px" }}>
 
             <h6>FILTERS</h6>
 
 
-            {/* <form> */}
-                {/* <div className="form-check">
+            {/* <form>
+                <div className="form-check">
                     <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
                     <label className="form-check-label" >
                         Men
@@ -20,15 +37,15 @@ function FilterSection() {
                         Women
                     </label>
                 </div>
-            </form>
+            </form> */}
             <br />
 
             <h6>PRICE</h6>
 
-            <select>
-                <option>Low to High</option>
-                <option>High to Low</option>
-            </select> */}
+            <select name='price' onChange={commonHandler}>
+                <option name="LowToHigh">Low to High</option>
+                <option name="HighToLow">High to Low</option>
+            </select>
 
         </div>
     )

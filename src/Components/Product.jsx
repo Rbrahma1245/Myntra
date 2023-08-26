@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { APIData } from './UseContext/APIContext';
 import Loader from './Loader';
 import FilterSection from './FilterSection';
@@ -15,7 +15,7 @@ function Product() {
     return (
         <div style={{ marginTop: 30 }} >
             <div className='d-flex '>
-                <FilterSection />           
+                <FilterSection  />           
 
                 <div className='row ' style={{ marginTop: 10, justifyContent: 'center' }}>
                     {

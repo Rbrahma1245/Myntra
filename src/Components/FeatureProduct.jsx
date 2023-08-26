@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Loader from './Loader';
 import { useContext } from 'react';
 import { APIData } from './UseContext/APIContext';
+import { NavLink } from 'react-router-dom';
 
 function FeatureProduct() {
 
@@ -28,6 +29,7 @@ function FeatureProduct() {
     const firstItemsFromEachCategory = getFirstItemFromEachCategory(products);
     console.log(firstItemsFromEachCategory);
 
+   
 
 
     return (
@@ -47,7 +49,7 @@ function FeatureProduct() {
                                     <h6 className="card-title">{category}</h6>
                                     <h6 className="card-subtitle mb-2 text-muted">$ {price}</h6>
                                     <br />
-                                    <a href="#" className="btn btn-primary">Add to card</a>
+                                    <NavLink to={`/${category}`} className="btn btn-primary">Add to card</NavLink>
                                 </div>
                             </div>
                         </div>
