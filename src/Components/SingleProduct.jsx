@@ -15,9 +15,9 @@ function SingleProduct() {
 
     return (
         <div  >
-            <NavLink style={{marginLeft:50}} to="/product" > Back</NavLink>
+            <NavLink style={{ marginLeft: 50 }} to="/product" > Back</NavLink>
             <div className="card " style={{ height: 400, alignItems: 'center', display: 'flex', flexDirection: 'row' }}>
-                <div  style={{ width: "30%", textAlign: "center" }}>
+                <div style={{ width: "30%", textAlign: "center" }}>
                     <img src={singleProduct?.image} width={200} height={200} />
                 </div>
 

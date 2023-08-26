@@ -6,6 +6,7 @@ import About from "./Components/About";
 import Product from "./Components/Product";
 import APIContext from "./Components/UseContext/APIContext";
 import SingleProduct from "./Components/SingleProduct";
+import Categories from "./Components/Categories";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             <Route path='/about' element={< About />} />
             <Route path='/product' element={< Product />} />
             <Route path="/product/:productId" element={<SingleProduct />} />
+            <Route path="/:category" element={<Categories />} />
           </Routes>
 
 

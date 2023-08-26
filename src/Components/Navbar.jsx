@@ -8,7 +8,7 @@ import { CgProfile } from 'react-icons/cg';
 function Navbar() {
 
     let location = useLocation()
-    let showSearchBar = location.pathname !== '/'
+    let showSearchBar = location.pathname == '/product'
 
 
 

@@ -1,42 +1,34 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { APIData } from './UseContext/APIContext';
 import Loader from './Loader';
 import FilterSection from './FilterSection';
-
-import { NavLink} from 'react-router-dom'
+import Card from './Card';
 
 
 function Product() {
 
     let { products, isLoading } = useContext(APIData)
+
+    let [form, setForm] = useState({
+        price: '',
+    })
+
+
     if (isLoading) return <Loader />
+
+    if (form.price == 'Low to High') products.sort((a, b) => a.price - b.price);
+    if (form.price == 'High to Low') products.sort((a, b) => b.price - a.price);
 
 
     return (
         <div style={{ marginTop: 30 }} >
             <div className='d-flex '>
-                <FilterSection />           
+                <FilterSection setForm={setForm} />
 
                 <div className='row ' style={{ marginTop: 10, justifyContent: 'center' }}>
+
                     {
-                        products.map((elem, i) => {
-                            let { id, title, price, image } = elem
-
-                            return (
-
-                                <div style={{ width: 400, marginBottom: 50 }} key={i} >
-                                    <div className="card" style={{ height: 400, alignItems: 'center' }}>
-                                        <img src={image} width={200} height={200} />
-                                        <div className="card-body">
-                                            <h6 className="card-title">{title}</h6>
-                                            <h6 className="card-subtitle mb-2 text-muted">$ {price}</h6>
-                                            <br />
-                                            <NavLink to={`/product/${id}`} className="btn btn-primary">Add to card</NavLink>
-                                        </div>
-                                    </div>
-                                </div>
-                            )
-                        })
+                        products.map((elem, i) => <Card elem={elem} key={elem.id} />)
                     }
 
                 </div>
