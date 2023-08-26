@@ -49,7 +49,7 @@ function FeatureProduct() {
                                     <h6 className="card-title">{category}</h6>
                                     <h6 className="card-subtitle mb-2 text-muted">$ {price}</h6>
                                     <br />
-                                    <NavLink to={`/${category}`} className="btn btn-primary">Add to card</NavLink>
+                                    <NavLink to={`/${category}`} className="btn btn-primary">Shop by Category</NavLink>
                                 </div>
                             </div>
                         </div>

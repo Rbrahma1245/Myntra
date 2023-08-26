@@ -7,7 +7,6 @@ import FeatureProduct from './FeatureProduct'
 function Home() {
   return (
     <div>
-      {/* <Navbar /> */}
       <Banner />
       <FeatureProduct />
     </div>
