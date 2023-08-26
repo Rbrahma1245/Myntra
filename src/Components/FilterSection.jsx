@@ -1,14 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-function FilterSection() {
+function FilterSection({setForm}) {
    
-
-
-
-    let [form, setForm] = useState({
-        price: '',
-    })
-
 
     function commonHandler(e) {
         let { name, value } = e.target
@@ -17,7 +10,6 @@ function FilterSection() {
         })
     }
 
-    console.log(form, 'from');
     return (
         <div className='w-25 ' style={{ padding: "20px 0px 5px 20px" }}>
 
