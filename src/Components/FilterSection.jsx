@@ -23,6 +23,7 @@ function FilterSection({setForm}) {
             <label> <input type="radio" name="gender" value="women" onChange={commonHandler} /> Women</label>
                  
             <br />
+            <br />
 
             <h6>PRICE</h6>
 

@@ -5,23 +5,27 @@ import FilterSection from './FilterSection';
 import Card from './Card';
 
 
-function Product({search}) {
+function Product({ search }) {
 
     let { products, isLoading } = useContext(APIData)
 
     let [form, setForm] = useState({
         price: '',
-        gender:''
+        gender: ''
     })
 
 
-    console.log(form, 'from form');
 
     if (form.price == 'Low to High') products.sort((a, b) => a.price - b.price);
     if (form.price == 'High to Low') products.sort((a, b) => b.price - a.price);
 
 
-    let filterProducts = products.filter((elem)=> elem.title.toLowerCase().includes(search))
+    let filterProducts = products.filter((elem) => elem.title.toLowerCase().includes(search))
+
+    let genderFilter = products.filter((elem) => elem.category.toLowerCase().includes(form.gender))
+
+
+    console.log(genderFilter, 'from gender category');
 
     if (isLoading) return <Loader />
 
