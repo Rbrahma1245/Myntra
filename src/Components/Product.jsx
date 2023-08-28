@@ -11,8 +11,11 @@ function Product({search}) {
 
     let [form, setForm] = useState({
         price: '',
+        gender:''
     })
 
+
+    console.log(form, 'from form');
 
     if (form.price == 'Low to High') products.sort((a, b) => a.price - b.price);
     if (form.price == 'High to Low') products.sort((a, b) => b.price - a.price);
