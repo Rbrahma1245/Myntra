@@ -1,0 +1,18 @@
+@media (max-width: 650px) {
+    .smcol {
+      font-size: 16px;
+      flex-direction: column !important;
+      
+    }
+    .smwidth{
+        width: 100% !important;
+    }
+    .smimg{
+        width: 100% !important;
+
+    }
+
+    .missiontxt{
+        padding: 2px 20px;
+    }
+  }

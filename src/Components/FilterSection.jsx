@@ -15,11 +15,12 @@ function FilterSection({setForm}) {
    
 
     return (
-        <div className='w-25 ' style={{ padding: "20px 0px 5px 20px" }}>
+        <div className='w-25 smwidth' style={{ padding: "20px 0px 5px 20px" }}>
 
             <h6>FILTERS</h6>
 
             <label className="gender"> <input type="radio" name="gender" value="men" onChange={commonHandler} /> Men</label>
+            
             <label> <input type="radio" name="gender" value="women" onChange={commonHandler} /> Women</label>
                  
             <br />

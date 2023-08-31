@@ -33,7 +33,7 @@ function FeatureProduct() {
 
 
     return (
-        <div className='row' style={{ marginTop: 50, justifyContent: 'center' }}>
+        <div className='row mx-0' style={{ marginTop: 50, justifyContent: 'center' }}>
             <h5>SHOP BY CATEGORY</h5>
 
             {

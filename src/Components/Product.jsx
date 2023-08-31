@@ -31,10 +31,10 @@ function Product({ search }) {
 
     return (
         <div style={{ marginTop: 30 }} >
-            <div className='d-flex '>
+            <div className='d-flex smcol '>
                 <FilterSection setForm={setForm} />
 
-                <div className='row ' style={{ marginTop: 10, justifyContent: 'center' }}>
+                <div className='row mx-0' style={{ marginTop: 10, justifyContent: 'center' }}>
 
                     {
                         filterProducts.map((elem, i) => <Card elem={elem} key={elem.id} />)

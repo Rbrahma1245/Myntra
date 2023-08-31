@@ -5,7 +5,7 @@ function Card({ elem }) {
     let { id, title, price, image } = elem
 
     return (
-        <div style={{ width: 400, marginBottom: 50 }}  >
+        <div className='smcol'  style={{ width: 400, marginBottom: 50 }}  >
             <div className="card" style={{ height: 400, alignItems: 'center' }}>
                 <img src={image} width={200} height={200} />
                 <div className="card-body">

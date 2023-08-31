@@ -18,12 +18,12 @@ function SingleProduct() {
     return (
         <div  >
             <NavLink style={{ marginLeft: 50 }} to="/product" > Back</NavLink>
-            <div className="card " style={{ height: 400, alignItems: 'center', display: 'flex', flexDirection: 'row' }}>
+            <div className="card smcol" style={{  alignItems: 'center', display: 'flex', flexDirection: 'row' }}>
                 <div style={{ width: "60%", textAlign: "center" }}>
                     <img src={singleProduct?.image} width={200} height={200} />
                 </div>
 
-                <div className="card-body" style={{marginRight:"6rem"}}>
+                <div className="card-body smwidth" >
                     <h6 className="card-title">{singleProduct?.title}</h6>
                     <h6 className="card-subtitle mb-2 text-muted">$ {singleProduct?.price}</h6>
                     <p>{singleProduct?.description}</p>
